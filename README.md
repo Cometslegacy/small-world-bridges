@@ -2,6 +2,8 @@
 
 A sleek, lightning-fast web tool for analyzing Yu-Gi-Oh! decks and finding card bridges using the *Small World* mechanic. Just copy a `.ydk` deck list to your clipboard and click one button — no manual pasting required.
 
+![alt text](image.png)
+
 ---
 
 ##  Features
