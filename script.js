@@ -196,10 +196,12 @@ document.getElementById('import-button').addEventListener('click', async functio
                 .map(line => line.trim())
                 .filter(line => line != '' && !line.startsWith('#') && !line.startsWith('!'));
         
+        selectedCards = []
+
         const ids = lines.map(Number).filter(n => !isNaN(n));
         const newCards = allCards.filter(card => card.id && ids.includes(card.id));
         const filteredCards = newCards.filter(card => {
-                console.log(card.name, card.type); // check for undefined
+                //console.log(card.name, card.type); // check for undefined
                 return isMainDeckMonster(card);
         });
 
