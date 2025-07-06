@@ -1,4 +1,4 @@
-const selectedCards = [];
+let selectedCards = [];
 let allCards = [];  // Will store full card data
 
 fetch('ygoprodeck.json')
@@ -148,3 +148,21 @@ window.network = new vis.Network(container, { nodes, edges }, options);
 
 // ---------------------------------------------------------------------------------------
 
+document.getElementById('undo-button').addEventListener('click', function() {
+    if (selectedCards.length === 0) {
+        this.textContent = 'No cards to delete!';
+        setTimeout(() => {
+            this.textContent = 'Delete All Cards';
+        }, 1000);
+        return;
+    }
+    
+    if (confirm('Are you sure you want to delete all cards?')) {
+        selectedCards.pop();
+        updateNetwork();
+        this.textContent = 'Deleted!';
+        setTimeout(() => {
+            this.textContent = 'Undo';
+        }, 3000);
+    }
+});
