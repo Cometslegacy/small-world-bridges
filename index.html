@@ -39,11 +39,22 @@
                         width: min(10%, 500px);
                 }
 
-                /* Delete button styling */
+                /* Undo button styling */
                 #undo-button {
                         position:fixed;
                         bottom: 20px;
                         left:50%;
+                        transform: translateX(-50%);
+                        z-index: 1000;
+                        padding: 10px 30px;
+                        font-size: 1.1rem;
+                }
+
+                /* Clear button styling */
+                #clear-button {
+                        position:fixed;
+                        bottom: 20px;
+                        left:40%;
                         transform: translateX(-50%);
                         z-index: 1000;
                         padding: 10px 30px;
@@ -97,9 +108,14 @@
                 >
         </div>
 
-        <!-- undo Button -->
-        <button id="undo-button" type="button" class="btn btn-outline-danger">
+        <!-- Clear Button -->
+        <button id="undo-button" type="button" class="btn btn-outline-warning">
                ↩ Undo ↩
+        </button>
+
+        <!-- Clear Button -->
+        <button id="clear-button" type="button" class="btn btn-outline-danger">
+               Clear
         </button>
 
         <!-- Network Visualization -->

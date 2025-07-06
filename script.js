@@ -60,9 +60,9 @@ const edges = [];
 const CONNECTION_TYPES = {
     ATK: { color: 'red', label: 'Same ATK' },
     DEF: { color: 'blue', label: 'Same DEF' },
-    LEVEL: { color: 'green', label: 'Same Level' },
+    LEVEL: { color: 'orange', label: 'Same Level' },
     ATTRIBUTE: { color: 'purple', label: 'Same Attribute' },
-    TYPE: { color: 'orange', label: 'Same Type' }
+    TYPE: { color: 'green', label: 'Same Type' }
 };
 
 const BASE_EDGE = {
@@ -146,23 +146,43 @@ if (window.network && typeof window.network.destroy === "function") {
 window.network = new vis.Network(container, { nodes, edges }, options);
 }
 
-// ---------------------------------------------------------------------------------------
+// Undo Button ---------------------------------------------------------------------------------------
 
 document.getElementById('undo-button').addEventListener('click', function() {
-    if (selectedCards.length === 0) {
-        this.textContent = 'No cards to delete!';
-        setTimeout(() => {
-            this.textContent = 'Delete All Cards';
-        }, 1000);
-        return;
-    }
+        if (selectedCards.length === 0) {
+                this.textContent = 'No cards to delete!';
+                setTimeout(() => {
+                        this.textContent = 'Delete All Cards';
+                }, 1000);
+                return;
+        }
     
-    if (confirm('Are you sure you want to delete all cards?')) {
         selectedCards.pop();
         updateNetwork();
         this.textContent = 'Deleted!';
         setTimeout(() => {
-            this.textContent = 'Undo';
+                this.textContent = 'Undo';
         }, 3000);
-    }
+
+});
+
+// Clear Button------------------------------------------------------------------------------------------
+
+document.getElementById('clear-button').addEventListener('click', function() {
+        if (selectedCards.length === 0) {
+                this.textContent = 'No cards to delete!';
+                setTimeout(() => {
+                        this.textContent = 'Delete All Cards';
+                }, 1000);
+                return;
+        }
+        if (confirm("Delete Everything?")){
+                selectedCards = [];
+                updateNetwork();
+                this.textContent = 'Deleted!';
+                setTimeout(() => {
+                        this.textContent = 'Undo';
+                }, 3000);
+        }
+
 });
