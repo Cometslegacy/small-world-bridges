@@ -33,19 +33,30 @@
                 #search-container {
                         position: fixed;
                         top: 20px;
-                        left: 50%;
+                        left: 15%;
                         transform: translateX(-50%);
                         z-index: 1000;
-                        width: min(10%, 500px);
+                        width: min(25%, 750px);
                 }
 
-                
+                /* Import button styling */
+                #import-button {
+                        position:fixed;
+                        bottom: 20px;
+                        left:75%;
+                        transform: translateX(-50%);
+                        z-index: 1000;
+                        padding: 10px 30px;
+                        font-size: 1.1rem;
+                        width: 140px;
+                        height: 45px
+                }
 
                 /* Undo button styling */
                 #undo-button {
                         position:fixed;
                         bottom: 20px;
-                        left:60%;
+                        left:50%;
                         transform: translateX(-50%);
                         z-index: 1000;
                         padding: 10px 30px;
@@ -58,7 +69,7 @@
                 #clear-button {
                         position:fixed;
                         bottom: 20px;
-                        left:40%;
+                        left:25%;
                         transform: translateX(-50%);
                         z-index: 1000;
                         padding: 10px 30px;
@@ -115,13 +126,18 @@
         </div>
 
         <!-- Clear Button -->
+        <button id="clear-button" type="button" class="btn btn-outline-danger">
+               Clear
+        </button>
+
+        <!-- Undo Button -->
         <button id="undo-button" type="button" class="btn btn-outline-warning">
                ↩ Undo
         </button>
 
-        <!-- Clear Button -->
-        <button id="clear-button" type="button" class="btn btn-outline-danger">
-               Clear
+        <!-- Import Button -->
+        <button id="import-button" type="button" class="btn btn-outline-success">
+               Import
         </button>
 
         <!-- Network Visualization -->

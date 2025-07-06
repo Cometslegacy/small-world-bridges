@@ -33,7 +33,7 @@ function isMainDeckMonster(card) {
     const extraDeckTypes = [
         "Fusion",
         "Synchro",
-        "Xyz",
+        "XYZ",
         "Link",
         "Pendulum"
     ];
@@ -62,7 +62,7 @@ const CONNECTION_TYPES = {
     DEF: { color: 'blue', label: 'Same DEF' },
     LEVEL: { color: 'orange', label: 'Same Level' },
     ATTRIBUTE: { color: 'purple', label: 'Same Attribute' },
-    TYPE: { color: 'green', label: 'Same Type' }
+    RACE: { color: 'green', label: 'Same Type' }
 };
 
 const BASE_EDGE = {
@@ -83,7 +83,7 @@ for (let i = 0; i < selectedData.length; i++) {
         if (cardA.def == cardB.def) matchingProperties.push('DEF');
         if (cardA.level == cardB.level) matchingProperties.push('LEVEL');
         if (cardA.attribute == cardB.attribute) matchingProperties.push('ATTRIBUTE');
-        if (cardA.race == cardB.race) matchingProperties.push('Race');
+        if (cardA.race == cardB.race) matchingProperties.push('RACE');
 
         // Only proceed if exactly one property matches
         if (matchingProperties.length === 1) {
@@ -166,7 +166,7 @@ document.getElementById('undo-button').addEventListener('click', function() {
 
 });
 
-// Clear Button------------------------------------------------------------------------------------------
+// Clear Button ------------------------------------------------------------------------------------------
 
 document.getElementById('clear-button').addEventListener('click', function() {
         if (selectedCards.length === 0) {
@@ -185,4 +185,38 @@ document.getElementById('clear-button').addEventListener('click', function() {
                 }, 3000);
         }
 
+});
+
+// Import Button --------------------------------------------------------------------------------------------
+document.getElementById('import-button').addEventListener('click', async function () {
+    try {
+        const clipBoard = await navigator.clipboard.readText();
+        alert("Clipboard contents:\n" + clipBoard);
+        const lines = clipBoard.split("\n")
+                .map(line => line.trim())
+                .filter(line => line != '' && !line.startsWith('#') && !line.startsWith('!'));
+        
+        const ids = lines.map(Number).filter(n => !isNaN(n));
+        const newCards = allCards.filter(card => card.id && ids.includes(card.id));
+        const filteredCards = newCards.filter(card => {
+                console.log(card.name, card.type); // check for undefined
+                return isMainDeckMonster(card);
+        });
+
+        if (filteredCards.length === 0) {
+                alert("No cards found in .YDK please copy the YDK to your clipboard")
+                return
+        }
+
+        for (const card of filteredCards) {
+                if (!selectedCards.includes(card.name)) {
+                        selectedCards.push(card.name)
+                }
+        }
+
+        updateNetwork()
+
+    } catch (err) {
+        alert("Failed to read clipboard: " + err.message);
+    }
 });
