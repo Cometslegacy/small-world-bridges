@@ -170,9 +170,9 @@ document.getElementById('undo-button').addEventListener('click', function() {
 
 document.getElementById('clear-button').addEventListener('click', function() {
         if (selectedCards.length === 0) {
-                this.textContent = 'No cards to delete!';
+                this.textContent = ' ??? ';
                 setTimeout(() => {
-                        this.textContent = 'Delete All Cards';
+                        this.textContent = 'Clear';
                 }, 1000);
                 return;
         }
