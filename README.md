@@ -16,7 +16,7 @@ A sleek, lightning-fast web tool for analyzing Yu-Gi-Oh! decks and finding card 
 
 ## How to Use
 
-1. Copy your `.ydk` deck list (from YGOPro, DuelingBook, etc.).
+1. Copy your `.ydk` deck list (from MasterDuelMeta, YGOPro, DuelingBook, etc.).
 2. Click the **Import Deck** button.
 3. Watch the tool auto-load your Main Deck monsters.
 4. Explore bridges using shared properties.
