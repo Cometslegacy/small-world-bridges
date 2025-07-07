@@ -33,7 +33,7 @@ No configuration needed. No files required.
 
 ##  Tech Stack
 
-- **HTML + Vanilla JS**
+- **HTML + JS**
 - `navigator.clipboard` API for fast and secure clipboard reads
 - `vis-network` for graph-based data visualization
 - `Awesomplete` for snappy in-page autocomplete
