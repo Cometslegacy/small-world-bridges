@@ -10,7 +10,7 @@ A web tool for analyzing Yu-Gi-Oh! decks and finding card bridges using the *Sma
 
 -  **.YDK Import:** Paste your deck from the clipboard in a single click — no file uploads or drag-and-drop needed.
 -  **Automatic Monster Filtering:** Filters out Extra Deck monsters and spells/traps, so only Main Deck monsters are analyzed.
--  **Connection Analysis:** Finds shared attributes, types, stats, and more to visualize possible *Small World* bridges.
+-  **Connection Analysis:** Finds shared attack, defeense, level, attribute and type to visualize possible *Small World* bridges.
 - **Interactive Graph Network:** Uses `vis-network` to let you explore and understand your deck’s inner workings.
 - **Instant Search:** Autocomplete with filtering logic for fast, flexible deck exploration.
 
